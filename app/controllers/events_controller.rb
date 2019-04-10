@@ -15,4 +15,10 @@ class EventsController < ApplicationController
     @events.update(params[:event])
     render json: @events
   end
+
+  def upcoming_events
+    start = Date.today.month
+    finish = Date.today.next_month(3).month
+    return Event.where(start_date: (start)..finish)
+  end
 end

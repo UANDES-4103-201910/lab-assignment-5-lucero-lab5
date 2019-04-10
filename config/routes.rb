@@ -31,6 +31,12 @@ Rails.application.routes.draw do
     resources :tickets
   end
 
+  resources :events do
+    member do
+      get 'upcoming_events'
+    end
+  end
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 end
