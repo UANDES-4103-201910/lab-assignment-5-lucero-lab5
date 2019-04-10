@@ -17,4 +17,7 @@ class UsersController < ApplicationController
    render json: @user
   end
 
+  def user_with_most_tickets
+    return Order.joins(:users,:tickets).select("user, count(tickets)").first
+  end
 end
